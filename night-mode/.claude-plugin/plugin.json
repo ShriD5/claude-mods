@@ -1,0 +1,27 @@
+{
+  "name": "night-mode",
+  "version": "0.1.0",
+  "description": "Late at night Claude gets more careful and asks before deploys, force pushes and rm -rf",
+  "author": { "name": "Shrithan Devaiah" },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "start": {
+      "type": "string",
+      "title": "Night starts",
+      "description": "Local time night mode turns on, as HH:MM",
+      "default": "01:00"
+    },
+    "end": {
+      "type": "string",
+      "title": "Night ends",
+      "description": "Local time night mode turns off, as HH:MM",
+      "default": "05:00"
+    },
+    "timezone": {
+      "type": "string",
+      "title": "Time zone",
+      "description": "An IANA time zone such as Asia/Kolkata; empty uses $TZ, then this machine's",
+      "default": ""
+    }
+  }
+}
