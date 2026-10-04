@@ -69,6 +69,21 @@ describe('commit-coach on a real Bash call', () => {
     expect(world.gitCalls, 'a git add earlier in the command: the work tree is read').toContain('diff HEAD')
   })
 
+  test('the model is told the message was rewritten, so it does not amend it back', async ($, on) => {
+    worldOf(on)
+    const ran = await $.tool.call({ tool: 'Bash', command: 'git commit -m fix' })
+
+    expect(ran.context?.at(-1)).toContain("rewrote the subject 'fix' to 'fix(scheduler): handle empty slot list'")
+    expect(ran.context?.at(-1)).toContain("don't amend")
+  })
+
+  test('a commit left alone gets no note', async ($, on) => {
+    worldOf(on)
+    const ran = await $.tool.call({ tool: 'Bash', command: 'git commit -m "fix: handle empty slot list"' })
+
+    expect(ran.context ?? []).toEqual([])
+  })
+
   test('the staged diff is read for a plain commit', async ($, on) => {
     const world = worldOf(on)
     await $.tool.call({ tool: 'Bash', command: 'git commit -m wip' })

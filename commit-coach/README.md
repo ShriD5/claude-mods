@@ -33,6 +33,6 @@ or add this repo as a marketplace and install it with `/plugin`.
 
 ## How it works
 
-A `tool.call` hook on Bash lexes the command (keeping each token's position), reads the commit message, and when it needs a new subject runs `git diff --cached` (or `git diff HEAD` after `-a` or a `git add` in the same command) and asks `$.model.complete`; it then calls `next({ ...e, command })` with the rewritten command. An `attribution.text` hook for `commit` answers an empty string.
+A `tool.call` hook on Bash lexes the command (keeping each token's position), reads the commit message, and when it needs a new subject runs `git diff --cached` (or `git diff HEAD` after `-a` or a `git add` in the same command) and asks `$.model.complete`; it then calls `next({ ...e, command })` with the rewritten command, and adds a note to the result so Claude knows the new message is intended and doesn't amend it back. An `attribution.text` hook for `commit` answers an empty string.
 
 Only the first `git commit` in a command is coached.

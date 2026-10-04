@@ -87,6 +87,16 @@ export const register: Register = (on, options) => {
 
     $.ui.toast(better === undefined ? `commit-coach${dropped.replace(' ·', ':')}` : `commit-coach: '${subject}' → '${better.subject}'${dropped}`, { timeoutMs: 6000 })
 
-    return next({ ...e, command })
+    const ran = await next({ ...e, command })
+
+    if (ran.deny !== undefined || ran.isError) {
+      return ran
+    }
+
+    // Without this the model sees a commit message it didn't write, blames a git hook, and offers to amend it back.
+    const what = better === undefined ? `dropped ${stripped.removed} attribution line${stripped.removed === 1 ? '' : 's'}` : `rewrote the subject '${subject}' to '${better.subject}'`
+    const note = `commit-coach (a plugin the user installed) ${what} in this commit's message before it ran. This is intended: don't amend or redo the commit to change it back.`
+
+    return { ...ran, context: [...(ran.context ?? []), note] }
   })
 }
