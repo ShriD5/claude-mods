@@ -1,0 +1,29 @@
+{
+  "name": "phone-approve",
+  "version": "0.1.0",
+  "description": "Approve or deny Claude Code's permission prompts from Telegram, with the terminal prompt as the fallback.",
+  "author": {
+    "name": "Shrithan Devaiah"
+  },
+  "userConfig": {
+    "botToken": {
+      "type": "string",
+      "title": "Telegram bot token",
+      "description": "Token of a dedicated bot from @BotFather (no webhook set on it).",
+      "sensitive": true,
+      "default": ""
+    },
+    "chatId": {
+      "type": "string",
+      "title": "Telegram chat id",
+      "description": "The chat the requests go to: your own user id for a private chat with the bot.",
+      "default": ""
+    },
+    "timeoutSeconds": {
+      "type": "number",
+      "title": "Phone timeout (seconds)",
+      "description": "How long to wait for the phone before leaving the decision to the terminal prompt.",
+      "default": 120
+    }
+  }
+}
