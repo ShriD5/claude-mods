@@ -1,0 +1,16 @@
+{
+  "name": "whoopgate",
+  "version": "0.1.0",
+  "description": "Live WHOOP heart rate in the status line; risky Bash commands are blocked while it is over your limit",
+  "author": {
+    "name": "Shrithan Devaiah"
+  },
+  "userConfig": {
+    "threshold": {
+      "type": "number",
+      "title": "Heart rate limit (bpm)",
+      "description": "At or above this, deploys, force pushes, rm -rf and publishes are blocked",
+      "default": 100
+    }
+  }
+}
