@@ -1,0 +1,6 @@
+{
+  "name": "secret-guard",
+  "version": "0.1.0",
+  "description": "Stops Claude from writing API keys, tokens, private keys and database passwords into files.",
+  "author": { "name": "Shrithan Devaiah" }
+}
