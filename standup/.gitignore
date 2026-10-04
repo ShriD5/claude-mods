@@ -1,0 +1,3 @@
+# laid down by Claude Code each time it loads the mod
+.claude-plugin/types/
+tsconfig.json

@@ -1,0 +1,20 @@
+{
+  "name": "standup",
+  "version": "0.1.0",
+  "description": "/standup writes yesterday's standup (since Friday on Mondays) from your git commits and copies it",
+  "author": { "name": "Shrithan Devaiah" },
+  "userConfig": {
+    "repos": {
+      "type": "string",
+      "title": "Other repos",
+      "description": "More repo paths to read besides the current one, separated by commas. ~/ is expanded.",
+      "default": ""
+    },
+    "model": {
+      "type": "string",
+      "title": "Model",
+      "description": "The model that writes the standup: an alias (haiku, sonnet) or a full model id.",
+      "default": "haiku"
+    }
+  }
+}
