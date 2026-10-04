@@ -1,0 +1,21 @@
+{
+  "name": "main-guard",
+  "version": "0.1.0",
+  "description": "A red band when you are on main or in prod, and no force-push, reset --hard or unconfirmed push to a protected branch",
+  "author": { "name": "Shrithan Devaiah" },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "protectedBranches": {
+      "type": "string",
+      "title": "Protected branches",
+      "description": "Comma-separated branch names; * matches anything (release* covers release/2.1).",
+      "default": "main, master, production, release*"
+    },
+    "confirmPushes": {
+      "type": "boolean",
+      "title": "Ask before a plain push",
+      "description": "On: a plain git push to a protected branch asks you first. Off: it is refused outright.",
+      "default": true
+    }
+  }
+}
