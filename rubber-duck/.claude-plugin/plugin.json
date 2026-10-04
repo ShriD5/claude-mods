@@ -1,0 +1,21 @@
+{
+  "name": "rubber-duck",
+  "version": "0.1.0",
+  "description": "A fast second opinion on every edit: a small model flags removed error handling, deleted tests, secrets and more",
+  "author": { "name": "Shrithan Devaiah" },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "model": {
+      "type": "string",
+      "title": "Review model",
+      "description": "The model that reviews each edit: an alias like haiku, or a full model id",
+      "default": "haiku"
+    },
+    "tellClaude": {
+      "type": "boolean",
+      "title": "Tell Claude",
+      "description": "Also pass new concerns to Claude with your next prompt",
+      "default": false
+    }
+  }
+}
