@@ -1,6 +1,6 @@
 # Writing a Claude Code mod (notes for builders in this repo)
 
-Claude Code 2.1.289. Authoritative API: docs/claude-code.d.ts (grep it for event names like 'tool.call', 'tool.check', 'turn.complete', 'session.start', `$.http.fetch`, `$.model.complete`, `$.ui.status`, `$.ui.toast`, `$.command.register`, `Pane: {`, `AbovePrompt`). Long form: docs/mods-reference.md. Examples: docs/examples/ (band.tsx, pane.tsx, tool-call.ts and their *-state.d.ts contracts).
+Written against Claude Code 2.1.289. The authoritative API is the TypeScript declaration file Claude Code writes beside a mod once it loads it (`<mod>/.claude-plugin/types/claude-code/index.d.ts`). Grep it for event names like 'tool.call', 'tool.check', 'turn.complete', 'session.start', `$.http.fetch`, `$.model.complete`, `$.ui.status`, `$.ui.toast`, `$.command.register`, `Pane: {`, `AbovePrompt`). Ask Claude Code to "make a mod" and it loads the official authoring guide and examples.
 
 Each mod is its own folder `<repo>/<mod-name>/` with:
 - `.claude-plugin/plugin.json`: `{ "name": "<mod-name>", "version": "0.1.0", "description": "<one line>" }` (+ `"types": "./types/index.d.ts"` if it uses `$.state`, + `userConfig` for options like tokens)
@@ -13,7 +13,7 @@ A hook is `($, e, next)`. Return without `next` to answer for yourself (`{ deny:
 
 Check every mod with:
 - `claude plugin validate <mod folder>`
-- type-check: write a tsconfig OUTSIDE the mod folder using the tsconfig from the header of docs/claude-code.d.ts, `include` naming docs/claude-code.d.ts and the mod's hooks dir, then `npx tsc -p <that tsconfig>`
+- type-check: once Claude Code has loaded the mod, `npx tsc -p <mod folder>`
 - `claude plugin test <mod folder>`
 
 Run a mod for real: `claude --plugin-dir <mod folder>` (one flag per folder).
