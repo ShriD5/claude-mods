@@ -1,0 +1,27 @@
+{
+  "name": "chai-meter",
+  "version": "0.1.0",
+  "description": "A taxi meter for the session's cost in the status line, in dollars and cups of chai.",
+  "author": { "name": "Shrithan Devaiah" },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "chaiPriceInr": {
+      "type": "number",
+      "title": "Price of a cup of chai (₹)",
+      "description": "What one cup costs, in rupees.",
+      "default": 20
+    },
+    "usdToInr": {
+      "type": "number",
+      "title": "Rupees per US dollar",
+      "description": "The exchange rate used to turn dollars into cups.",
+      "default": 84
+    },
+    "priceOverrides": {
+      "type": "string",
+      "title": "Price overrides",
+      "description": "JSON of model id to [input, output, cache write, cache read] dollars per million tokens, e.g. {\"claude-opus-5-5\": [4, 20, 5, 0.2]}. Empty uses the built-in table.",
+      "default": ""
+    }
+  }
+}
