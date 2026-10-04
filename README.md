@@ -1,6 +1,6 @@
 # claude-mods
 
-Ten [Claude Code mods](https://code.claude.com) I built in a day. Each one is a small TypeScript plugin of function hooks, in its own folder, with a README and tests.
+Ten Claude Code mods I built in a day. Each one is a small TypeScript plugin of function hooks, in its own folder, with a README and tests.
 
 | Mod | What it does |
 | --- | --- |
