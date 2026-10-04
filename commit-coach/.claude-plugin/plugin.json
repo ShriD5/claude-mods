@@ -1,0 +1,26 @@
+{
+  "name": "commit-coach",
+  "version": "0.1.0",
+  "description": "Rewrites lazy commit subjects into conventional commits from the staged diff, and strips AI attribution trailers",
+  "author": { "name": "Shrithan Devaiah" },
+  "userConfig": {
+    "stripAttribution": {
+      "type": "boolean",
+      "title": "Strip attribution",
+      "description": "Remove Co-Authored-By: trailers and \"Generated with\" lines from commit messages, and stop asking Claude to add them.",
+      "default": true
+    },
+    "rewriteSubjects": {
+      "type": "boolean",
+      "title": "Rewrite lazy subjects",
+      "description": "Rewrite subjects like \"fix\" or \"wip\", single words, subjects over 72 characters and ones without a conventional prefix.",
+      "default": true
+    },
+    "model": {
+      "type": "string",
+      "title": "Model",
+      "description": "The model that writes the new subject: an alias (haiku, sonnet) or a full model id.",
+      "default": "haiku"
+    }
+  }
+}
