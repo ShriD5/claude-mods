@@ -1,0 +1,30 @@
+{
+  "name": "ship-log",
+  "version": "0.1.0",
+  "description": "/ship turns what you built this session into a build-in-public post for X or LinkedIn",
+  "author": {
+    "name": "Shrithan Devaiah"
+  },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "model": {
+      "type": "string",
+      "title": "Model",
+      "description": "The model that writes the post: an alias (haiku, sonnet) or a full model id.",
+      "default": "haiku"
+    },
+    "webhookUrl": {
+      "type": "string",
+      "title": "Webhook URL",
+      "description": "Optional. Each draft is POSTed here as JSON { platform, text, source: \"ship-log\" }, say to feed a content calendar.",
+      "default": ""
+    },
+    "webhookToken": {
+      "type": "string",
+      "title": "Webhook bearer token",
+      "description": "Optional. Sent as Authorization: Bearer <token> with the webhook POST.",
+      "default": "",
+      "sensitive": true
+    }
+  }
+}
